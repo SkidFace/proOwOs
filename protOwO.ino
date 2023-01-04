@@ -1,7 +1,3 @@
-//NOTE TO SELF: I DISABLED GLITCH() DUE TO SRAM POSSIBLY BEING TAKING UP.
-
-
-
 #include <ezButton.h>
 #include <Adafruit_GFX.h>
 #include "Adafruit_LEDBackpack.h"
@@ -422,58 +418,6 @@ void setColor(int redValue, int greenValue, int blueValue) {
   analogWrite(bluePin, blueValue);
 }
 
-///////////////////////////Glitch animation\\\\\\\\\\\\\\\\\\\\\\\\\\\
-
-//void glitch() {
-//  if ((millis() - debounceTime3) > 7000) {
-//    if (state == 2) {
-//      counter++;
-//      if (counter == 1) {
-//        matrix3L.fillRect(0, 0, 16, 8, LOW);
-//        matrix2L.fillRect(0, 0, 16, 8, LOW);
-//        matrix2R.fillRect(0, 0, 16, 8, LOW);
-//        matrix3R.fillRect(0, 0, 16, 8, LOW);
-//        matrix2L.drawBitmap(0, 0, Glitch1L_1, 16, 8, HIGH);
-//        matrix3L.drawBitmap(0, 0, Glitch1L_2, 16, 8, HIGH);
-//        matrix2R.drawBitmap(0, 0, Glitch1_1, 16, 8, HIGH);
-//        matrix3R.drawBitmap(0, 0, Glitch1L_2, 16, 8, HIGH);
-//        writeDisplay();
-//        delay(170);
-//        counter++;
-//      }
-//      if (counter == 2) {
-//        matrix3L.fillRect(0, 0, 16, 8, LOW);
-//        matrix2L.fillRect(0, 0, 16, 8, LOW);
-//        matrix2R.fillRect(0, 0, 16, 8, LOW);
-//        matrix3R.fillRect(0, 0, 16, 8, LOW);
-//        matrix2L.drawBitmap(0, 0, Glitch2L_1, 16, 8, HIGH);
-//        matrix3L.drawBitmap(0, 0, Glitch2L_2, 16, 8, HIGH);
-//        matrix2R.drawBitmap(0, 0, Glitch2_1, 16, 8, HIGH);
-//        matrix3R.drawBitmap(0, 0, Glitch2_2, 16, 8, HIGH);
-//        writeDisplay();
-//        delay(200);
-//        counter++;
-//      }
-//      if (counter == 3) {
-//        matrix3L.fillRect(0, 0, 16, 8, LOW);
-//        matrix2L.fillRect(0, 0, 16, 8, LOW);
-//        matrix2R.fillRect(0, 0, 16, 8, LOW);
-//        matrix3R.fillRect(0, 0, 16, 8, LOW);
-//        matrix2L.drawBitmap(0, 0, mawL1, 16, 8, HIGH);
-//        matrix3L.drawBitmap(0, 0, mawL2, 16, 8, HIGH);
-//        matrix2R.drawBitmap(0, 0, maw1, 16, 8, HIGH);
-//        matrix3R.drawBitmap(0, 0, maw2, 16, 8, HIGH);
-//        writeDisplay();
-//        counter = 0;
-//      }
-//      debounceTime3 = millis();
-//    }
-//  }
-//}
-
-///////////////////////////Eye-tracking\\\\\\\\\\\\\\\\\\\\\\\\\\\
-
-
 ///////////////////////////Blink animation\\\\\\\\\\\\\\\\\\\\\\\\\\\
 
 void Blink() {
@@ -521,7 +465,7 @@ void ClearDisplay(){
   matrix4R.fillScreen(LOW);
 }
 
-void ChangeFace() {                               //Stuff you shouldn't touch :P
+void ChangeFace() {                            
     if (state < expressions) {
       state++;
     }
@@ -530,17 +474,3 @@ void ChangeFace() {                               //Stuff you shouldn't touch :P
     }
     rising = 1;
 }
-
-//void ISR_button() {                               //Stuff you shouldn't touch :P
-//  currentTime = millis();
-//  if ((currentTime - debounceTime) > 250) {
-//    if (state < expressions) {
-//      state++;
-//    }
-//    else {
-//      state = 0;
-//    }
-//    rising = 1;
-//  }
-//  debounceTime = currentTime;
-//}
